@@ -9,10 +9,6 @@
 #
 # @sacloud-password ark_server_password "ARKサーバーパスワード"
 
-## base
-sed -i "/^[^#]*PasswordAuthentication[[:space:]]yes/c\PasswordAuthentication no" /etc/ssh/sshd_config
-systemctl restart sshd
-
 ## prepare install
 adduser --system steam
 
