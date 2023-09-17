@@ -9,6 +9,6 @@ terraform {
 }
 
 provider "sakuracloud" {
-  zone   = "tk1a"
+  zone = "tk1a"
 }
 
