@@ -28,6 +28,6 @@ provider "aws" {
 
 module "ark-server" {
   source = "../../modules/ark"
-  
+
   ark_server_password = var.ark_server_password
 }
