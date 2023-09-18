@@ -118,5 +118,5 @@ resource "sakuracloud_disk" "ark" {
 
 resource "sakuracloud_note" "ark" {
   name    = "ark-server-init"
-  content = file("scripts/ark_init.sh")
+  content = file("${path.module}/scripts/ark_init.sh")
 }
