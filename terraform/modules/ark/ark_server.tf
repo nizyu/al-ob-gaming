@@ -2,8 +2,8 @@ resource "sakuracloud_server" "ark" {
   name        = "ark"
   description = "ARK server"
 
-  core           = 4
-  memory         = 6
+  core           = 3
+  memory         = 8
   commitment     = "standard"
   force_shutdown = false
 
@@ -106,8 +106,8 @@ data "sakuracloud_archive" "ubuntu" {
 resource "sakuracloud_disk" "ark" {
   name              = "ark-root"
   connector         = "virtio"
-  plan              = "hdd"
-  size              = 250
+  plan              = "ssd"
+  size              = 40
   zone              = "tk1a"
   source_archive_id = data.sakuracloud_archive.ubuntu.id
 
