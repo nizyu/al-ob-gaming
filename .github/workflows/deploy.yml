@@ -32,4 +32,5 @@ jobs:
           aws-region: ap-northeast-1
       - run: |
           cd ./terraform/env/ark
+          terraform init
           terraform apply -auto-approve
