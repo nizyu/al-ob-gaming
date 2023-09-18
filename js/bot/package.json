@@ -1,0 +1,21 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "bot for manage server",
+  "main": "index.js",
+  "repository": "https://github.com/nizyu/al-ob-gaming.git",
+  "private": true,
+  "author": "nizyu",
+  "license": "MIT",
+  "scripts": {
+    "register_command": "node src/register_command.js",
+    "lint": "eslint --fix src"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "discord-interactions": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0"
+  }
+}
