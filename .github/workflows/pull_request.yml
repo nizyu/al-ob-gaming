@@ -38,7 +38,7 @@ jobs:
           role-to-assume: arn:aws:iam::659723578991:role/al-ob-gaming-github-actions
           role-session-name: ci-session
           aws-region: ap-northeast-1
-        run: |
+      - run: |
           cd ./terraform/env/ark
           terraform init
           terraform plan
