@@ -18,9 +18,12 @@ resource "aws_iam_role" "github_actions_role" {
       {
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
+          StringLike = {
+            "token.actions.githubusercontent.com:sub" = "repo:myusername/myrepo:*"
+          }
           StringEquals = {
+            "token.actions.githubusercontent.com:iss" = "https://token.actions.githubusercontent.com"
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-            "token.actions.githubusercontent.com:sub" = "repo:nizyu/al-ob-gaming:*"
           }
         }
         Effect = "Allow"
