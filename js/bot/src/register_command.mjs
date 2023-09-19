@@ -1,7 +1,7 @@
-const axios = require('axios'); 
-const command = require('./command');
+import axios from 'axios'; 
+import { slashCommands } from './command.mjs';
 
-const requests = command.slash_commands.map((command) => {
+const requests = slashCommands.map((command) => {
   return axios.post(
     `https://discord.com/api/v8/applications/${process.env["DISCORD_APPLICATION_ID"]}/commands`,
     command,

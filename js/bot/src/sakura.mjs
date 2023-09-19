@@ -1,8 +1,8 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const powerAPI = (serverId) => `https://secure.sakura.ad.jp/cloud/zone/tk1a/api/cloud/1.1/server/${serverId}/power`;
 
-exports.powerOff = (serverId, token, tokenSecret) =>
+export const powerOff = async (serverId, token, tokenSecret) =>
   axios.delete(powerAPI(serverId), null, {auth: {username: token, password: tokenSecret}})
     .then((res) => {
       if (res.status < 300) {
@@ -12,7 +12,7 @@ exports.powerOff = (serverId, token, tokenSecret) =>
       }
     });
 
-exports.powerOn = (serverId, token, tokenSecret) =>
+export const powerOn = async (serverId, token, tokenSecret) =>
   axios.put(powerAPI(serverId), null, {auth: {username: token, password: tokenSecret}})
     .then((res) => {
       if (res.status < 300) {
@@ -23,7 +23,7 @@ exports.powerOn = (serverId, token, tokenSecret) =>
     });
 
 
-exports.powerStatus = (serverId, token, tokenSecret) =>
+export const powerStatus = async (serverId, token, tokenSecret) =>
   axios.get(powerAPI(serverId), {auth: {username: token, password: tokenSecret}})
     .then((res) => {
       if (res.status < 300) {

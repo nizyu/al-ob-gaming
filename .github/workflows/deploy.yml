@@ -10,16 +10,32 @@ permissions:
   contents: read
 
 jobs:
-  apply:
-    name: Apply
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
     env:
       SAKURACLOUD_ACCESS_TOKEN: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN }}
       SAKURACLOUD_ACCESS_TOKEN_SECRET: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN_SECRET }}
+      DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+      DISCORD_APPLICATION_ID: ${{ secrets.DISCORD_APPLICATION_ID }}
+      DISCORD_BOT_ACCESS_TOKEN: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }}
       TF_VAR_ark_server_password: ${{ secrets.ARK_SERVER_PASSWORD }}
+      TF_VAR_discord_application_id: ${{ secrets.DISCORD_APPLICATION_ID }}
+      TF_VAR_discord_bot_access_token: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }} 
+      TF_VAR_discord_public_key: ${{ secrets.DISCORD_PUBLIC_KEY }}
+      TF_VAR_sakuracloud_server_power_token: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN }}
+      TF_VAR_sakuracloud_server_power_token_secret: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN_SECRET }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      - run: |
+          cd ./js/bot
+          yarn install --frozen-lockfile --production=true
+          yarn register_command
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -34,3 +50,6 @@ jobs:
           cd ./terraform/env/ark
           terraform init
           terraform apply -auto-approve
+
+
+

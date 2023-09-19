@@ -1,4 +1,4 @@
-exports.slash_commands = [
+export const slashCommands = [
   {
     name: 'hello_world',
     name_localizations: {

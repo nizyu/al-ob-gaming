@@ -2,13 +2,14 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "bot for manage server",
-  "main": "index.js",
+  "type": "module",
+  "main": "./src/index.mjs",
   "repository": "https://github.com/nizyu/al-ob-gaming.git",
   "private": true,
   "author": "nizyu",
   "license": "MIT",
   "scripts": {
-    "register_command": "node src/register_command.js",
+    "register_command": "node src/register_command.mjs",
     "lint": "eslint --fix src"
   },
   "dependencies": {
