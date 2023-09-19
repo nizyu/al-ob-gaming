@@ -31,7 +31,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
       - run: |
           cd ./js/bot
           yarn install --frozen-lockfile --production=true
