@@ -17,7 +17,7 @@ module "bot_function" {
   create_package             = false
   create_lambda_function_url = true
 
-  local_existing_package = data.archive_file.sample_function.output_path
+  local_existing_package = data.archive_file.bot_function.output_path
 
   environment_variables = {
     "DISCORD_APPLICATION_ID"                = var.discord_application_id
