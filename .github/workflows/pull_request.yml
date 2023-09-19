@@ -10,28 +10,45 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Lint
+  TF_lint:
+    name: TF Lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.7
       - name: Run terraform fmt check
         run: terraform fmt -check -diff -recursive ./terraform
-  plan:
-    name: Plan 
+  JS_lint:
+    name: JS Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: |
+          cd ./js/bot
+          yarn install --frozen-lockfile
+          yarn lint
+  TF_plan:
+    name: TF Plan 
     runs-on: ubuntu-latest
     env:
       SAKURACLOUD_ACCESS_TOKEN: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN }}
       SAKURACLOUD_ACCESS_TOKEN_SECRET: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN_SECRET }}
       TF_VAR_ark_server_password: ${{ secrets.ARK_SERVER_PASSWORD }}
+      TF_VAR_discord_application_id: ${{ secrets.DISCORD_APPLICATION_ID }}
+      TF_VAR_discord_bot_access_token: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }} 
+      TF_VAR_discord_public_key: ${{ secrets.DISCORD_PUBLIC_KEY }}
+      TF_VAR_sakuracloud_server_power_token: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN }}
+      TF_VAR_sakuracloud_server_power_token_secret: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN_SECRET }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
