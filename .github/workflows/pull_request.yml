@@ -27,12 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: cd ./js/bot
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
       - run: |
-          cd ./js/bot
           yarn install --frozen-lockfile
           yarn lint
   TF_plan:
@@ -42,6 +41,11 @@ jobs:
       SAKURACLOUD_ACCESS_TOKEN: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN }}
       SAKURACLOUD_ACCESS_TOKEN_SECRET: ${{ secrets.SAKURACLOUD_ACCESS_TOKEN_SECRET }}
       TF_VAR_ark_server_password: ${{ secrets.ARK_SERVER_PASSWORD }}
+      TF_VAR_discord_application_id: ${{ secrets.DISCORD_APPLICATION_ID }}
+      TF_VAR_discord_bot_access_token: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }} 
+      TF_VAR_discord_public_key: ${{ secrets.DISCORD_PUBLIC_KEY }}
+      TF_VAR_sakuracloud_server_power_token: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN }}
+      TF_VAR_sakuracloud_server_power_token_secret: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN_SECRET }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
