@@ -1,5 +1,6 @@
 import * as intaraction from 'discord-interactions';
 import * as sakura from './sakura.mjs';
+import { setTimeout } from 'timers/promises';
 
 export const handler = async (event) => {
   if (!verifyRequest(event)) {
@@ -47,15 +48,18 @@ const handleInteraction = async (request) => {
     const token = process.env["SAKURACLOUD_SERVER_POWER_TOKEN"]
     const secret = process.env["SAKURACLOUD_SERVER_POWER_TOKEN_SECRET"]
     let message = "知らないメッセージです。"
+    console.log(request);
 
-    if (request.name === "hello_world") {
-      await sakura.powerOn(serverId, token, secret);
+    if (request.data.name === "hello_world") {
+      sakura.powerOn(serverId, token, secret);
+      await setTimeout(200);
       message = "稼働開始します。"
-    } else if (request.name === "monitor_world") {
+    } else if (request.data.name === "monitor_world") {
       const result = await sakura.powerStatus(serverId, token, secret);
       message = `確認結果: ${result.powerStatus} です。`
-    } else if (request.name === "stop_world") {
-      await sakura.powerOff(serverId, token, secret);
+    } else if (request.data.name === "stop_world") {
+      sakura.powerOff(serverId, token, secret);
+      await setTimeout(200);
       message = `おやすみなさい。`
     }
 
@@ -69,3 +73,4 @@ const handleInteraction = async (request) => {
 
   return { type: intaraction.InteractionResponseType.PONG };
 };
+
