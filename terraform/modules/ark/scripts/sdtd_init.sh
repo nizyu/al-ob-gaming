@@ -28,6 +28,7 @@ sudo -u steam /usr/games/steamcmd +force_install_dir /home/steam/servers/7dtd +l
 
 ## change password
 sed -i '/ServerPassword/c <property name="ServerPassword" value="@@@7dtd_server_password@@@"\/>/'  /home/steam/servers/7dtd/serverconfig.xml 
+sed -i '/ServerName/c <property name="ServerName" value="ALBERT TOWN"\/>/'  /home/steam/servers/7dtd/serverconfig.xml 
 
 ## auto start 7dtd
 cat << EOF > /etc/systemd/system/7dtd-dedicated.service
