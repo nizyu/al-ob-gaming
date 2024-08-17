@@ -58,7 +58,7 @@ resource "sakuracloud_packet_filter" "sdtd" {
     destination_port = "26900"
     description      = "sdtd port"
   }
-  
+
   expression {
     protocol         = "udp"
     destination_port = "26900-26903"
@@ -105,7 +105,7 @@ resource "sakuracloud_packet_filter" "sdtd" {
 
 ## Disk
 
-data "sakuracloud_archive" "ubuntu" {
+data "sakuracloud_archive" "ubuntu4sdtd" {
   os_type = "ubuntu2404"
 }
 
@@ -115,7 +115,7 @@ resource "sakuracloud_disk" "sdtd" {
   plan              = "ssd"
   size              = 40
   zone              = "tk1a"
-  source_archive_id = data.sakuracloud_archive.ubuntu.id
+  source_archive_id = data.sakuracloud_archive.ubuntu4sdtd.id
 
   tags = ["sdtd"]
 
