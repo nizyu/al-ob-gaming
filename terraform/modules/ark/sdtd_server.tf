@@ -105,17 +105,13 @@ resource "sakuracloud_packet_filter" "sdtd" {
 
 ## Disk
 
-data "sakuracloud_archive" "ubuntu4sdtd" {
-  os_type = "ubuntu2404"
-}
-
 resource "sakuracloud_disk" "sdtd" {
   name              = "sdtd-root"
   connector         = "virtio"
   plan              = "ssd"
   size              = 40
   zone              = "tk1a"
-  source_archive_id = data.sakuracloud_archive.ubuntu4sdtd.id
+  source_archive_id = data.sakuracloud_archive.ubuntu.id
 
   tags = ["sdtd"]
 
