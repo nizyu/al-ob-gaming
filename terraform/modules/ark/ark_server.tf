@@ -112,6 +112,12 @@ resource "sakuracloud_disk" "ark" {
   source_archive_id = data.sakuracloud_archive.ubuntu.id
 
   tags = ["ARK"]
+
+  lifecycle {
+    ignore_changes = [
+      source_archive_id
+    ]
+  }
 }
 
 ## Script

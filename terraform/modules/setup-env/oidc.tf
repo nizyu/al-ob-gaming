@@ -40,6 +40,7 @@ resource "aws_iam_role_policy_attachment" "tfc_policy_attachment" {
     "arn:aws:iam::aws:policy/AmazonS3FullAccess",
     "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
     "arn:aws:iam::aws:policy/IAMReadOnlyAccess",
+    "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
   ])
   role       = aws_iam_role.github_actions_role.name
   policy_arn = each.value
