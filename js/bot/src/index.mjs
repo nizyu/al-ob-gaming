@@ -44,12 +44,19 @@ const lowercaseKeys = (obj) => {
 // interaction の処理
 const handleInteraction = async (request) => {
   if (request.type === intaraction.InteractionType.APPLICATION_COMMAND) {
-    const serverId = process.env["ARK_SERVER_ID"]
+    console.log(request, {depth: null});
     const token = process.env["SAKURACLOUD_SERVER_POWER_TOKEN"]
     const secret = process.env["SAKURACLOUD_SERVER_POWER_TOKEN_SECRET"]
-    let message = "知らないメッセージです。"
-    console.log(request);
+    
+    const choice = request.data.options[0].value
+    let serverId = null
+    if (choice === 1) {
+      serverId = process.env["ARK_SERVER_ID"]
+    } else if (choice === 2) {
+      serverId = process.env["SDTD_SERVER_ID"]
+    }
 
+    let message = "知らないメッセージです。"
     if (request.data.name === "hello_world") {
       sakura.powerOn(serverId, token, secret);
       await setTimeout(200);
