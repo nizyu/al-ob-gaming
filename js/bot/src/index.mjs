@@ -50,24 +50,27 @@ const handleInteraction = async (request) => {
     
     const choice = request.data.options[0].value
     let serverId = null
+    let serverName = "unknown"
     if (choice === 1) {
       serverId = process.env["ARK_SERVER_ID"]
+      serverName = "ARKサーバー"
     } else if (choice === 2) {
       serverId = process.env["SDTD_SERVER_ID"]
+      serverName = "7DTDサーバー"
     }
 
     let message = "知らないメッセージです。"
     if (request.data.name === "hello_world") {
       sakura.powerOn(serverId, token, secret);
       await setTimeout(200);
-      message = "稼働開始します。"
+      message = `${serverName}を起動します`
     } else if (request.data.name === "monitor_world") {
       const result = await sakura.powerStatus(serverId, token, secret);
-      message = `確認結果: ${result.powerStatus} です。`
+      message = `${serverName}の状態は${result.powerStatus}です`
     } else if (request.data.name === "stop_world") {
       sakura.powerOff(serverId, token, secret);
       await setTimeout(200);
-      message = `おやすみなさい。`
+      message = `${serverName}を停止します`
     }
 
     return {

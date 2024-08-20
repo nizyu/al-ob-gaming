@@ -2,7 +2,7 @@ export const slashCommands = [
   {
     name: 'hello_world',
     name_localizations: {
-      ja: '働け',
+      ja: '起動',
     },
     description: 'boot game server',
     guild_id: process.env.DISCORD_GUILD_ID,
@@ -30,7 +30,7 @@ export const slashCommands = [
   {
     name: 'monitor_world',
     name_localizations: {
-      ja: '見てるぞ',
+      ja: '確認',
     },
     description: 'check game server status',
     guild_id: process.env.DISCORD_GUILD_ID,
@@ -58,7 +58,7 @@ export const slashCommands = [
   {
     name: 'stop_world',
     name_localizations: {
-      ja: '休め',
+      ja: '休止',
     },
     description: 'kill game server',
     guild_id: process.env.DISCORD_GUILD_ID,
