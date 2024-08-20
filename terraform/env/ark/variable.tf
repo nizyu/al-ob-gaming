@@ -3,6 +3,11 @@ variable "ark_server_password" {
   sensitive = true
 }
 
+variable "sdtd_server_password" {
+  type      = string
+  sensitive = true
+}
+
 variable "discord_application_id" {
   type      = string
   sensitive = true

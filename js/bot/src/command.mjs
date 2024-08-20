@@ -19,6 +19,10 @@ export const slashCommands = [
             name: 'ARK',
             value: '1',
           },
+          {
+            name: '7dtd',
+            value: '2',
+          }
         ],
       },
     ],
@@ -43,6 +47,10 @@ export const slashCommands = [
             name: 'ARK',
             value: '1',
           },
+          {
+            name: '7dtd',
+            value: '2',
+          }
         ],
       },
     ],
@@ -67,6 +75,10 @@ export const slashCommands = [
             name: 'ARK',
             value: '1',
           },
+          {
+            name: '7dtd',
+            value: '2',
+          }
         ],
       },
     ],

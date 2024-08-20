@@ -31,6 +31,7 @@ module "ark-server" {
   source = "../../modules/ark"
 
   ark_server_password                   = var.ark_server_password
+  sdtd_server_password                  = var.sdtd_server_password
   discord_application_id                = var.discord_application_id
   discord_bot_access_token              = var.discord_bot_access_token
   discord_public_key                    = var.discord_public_key

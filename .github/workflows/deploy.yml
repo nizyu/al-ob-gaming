@@ -20,6 +20,7 @@ jobs:
       DISCORD_APPLICATION_ID: ${{ secrets.DISCORD_APPLICATION_ID }}
       DISCORD_BOT_ACCESS_TOKEN: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }}
       TF_VAR_ark_server_password: ${{ secrets.ARK_SERVER_PASSWORD }}
+      TF_VAR_sdtd_server_password: ${{ secrets.SDTD_SERVER_PASSWORD }}
       TF_VAR_discord_application_id: ${{ secrets.DISCORD_APPLICATION_ID }}
       TF_VAR_discord_bot_access_token: ${{ secrets.DISCORD_BOT_ACCESS_TOKEN }} 
       TF_VAR_discord_public_key: ${{ secrets.DISCORD_PUBLIC_KEY }}
