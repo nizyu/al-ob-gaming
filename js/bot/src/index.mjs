@@ -54,7 +54,7 @@ const handleInteraction = async (request) => {
     let serverId = null
     if (choice === 1) {
       servierId = process.env["ARK_SERVER_ID"]
-    } else (choice === 2) {
+    } else if (choice === 2) {
       servierId = process.env["SDTD_SERVER_ID"]
     }
 
