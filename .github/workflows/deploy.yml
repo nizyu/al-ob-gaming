@@ -28,8 +28,8 @@ jobs:
       TF_VAR_sakuracloud_server_power_token_secret: ${{ secrets.SAKURACLOUD_SERVER_POWER_TOKEN_SECRET }}
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
       - run: |
@@ -37,11 +37,11 @@ jobs:
           yarn install --frozen-lockfile --production=true
           yarn register_command
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.5.7
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::659723578991:role/al-ob-gaming-github-actions
           role-session-name: ci-session
