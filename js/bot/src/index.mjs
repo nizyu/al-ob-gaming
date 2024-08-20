@@ -44,7 +44,7 @@ const lowercaseKeys = (obj) => {
 // interaction の処理
 const handleInteraction = async (request) => {
   if (request.type === intaraction.InteractionType.APPLICATION_COMMAND) {
-    console.log(request, {depth: null});
+    console.log(JSON.stringify(request), null, 2);
     const token = process.env["SAKURACLOUD_SERVER_POWER_TOKEN"]
     const secret = process.env["SAKURACLOUD_SERVER_POWER_TOKEN_SECRET"]
     
