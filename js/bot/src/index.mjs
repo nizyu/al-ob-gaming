@@ -45,17 +45,15 @@ const lowercaseKeys = (obj) => {
 const handleInteraction = async (request) => {
   if (request.type === intaraction.InteractionType.APPLICATION_COMMAND) {
     console.log(request, {depth: null});
-    const arkServerId = process.env["ARK_SERVER_ID"]
-    const sdtdServerId = process.env["SDTD_SERVER_ID"]
     const token = process.env["SAKURACLOUD_SERVER_POWER_TOKEN"]
     const secret = process.env["SAKURACLOUD_SERVER_POWER_TOKEN_SECRET"]
     
     const choice = request.data.options[0].value
     let serverId = null
     if (choice === 1) {
-      servierId = process.env["ARK_SERVER_ID"]
+      serverId = process.env["ARK_SERVER_ID"]
     } else if (choice === 2) {
-      servierId = process.env["SDTD_SERVER_ID"]
+      serverId = process.env["SDTD_SERVER_ID"]
     }
 
     let message = "知らないメッセージです。"
