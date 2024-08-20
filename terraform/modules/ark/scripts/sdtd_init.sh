@@ -5,7 +5,7 @@
 #   7 days to dieのインストールスクリプト
 # @sacloud-desc-end
 #
-# @sacloud-password 7dtd_server_password "7dtdサーバーパスワード"
+# @sacloud-password sdtd_server_password "7dtdサーバーパスワード"
 
 ## prepare install
 adduser --system steam
