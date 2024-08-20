@@ -39,7 +39,7 @@ After=syslog.target network.target nss-lookup.target network-online.target
 
 [Service]
 ExecStartPre=/usr/games/steamcmd +login anonymous +force_install_dir /home/steam/servers/7dtd +app_update 294420 +quit
-ExecStart=/home/steam/servers/7dtd/startserver.sh
+ExecStart=/home/steam/servers/7dtd/startserver.sh -configfile=serverconfig.xml
 ExecStop=-/bin/bash -c "echo 'shutdown' | /usr/bin/telnet 127.0.0.1 8081"
 WorkingDirectory=/home/steam/servers/7dtd/
 LimitNOFILE=100000

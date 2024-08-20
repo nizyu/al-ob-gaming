@@ -8,7 +8,7 @@ export const slashCommands = [
     guild_id: process.env.DISCORD_GUILD_ID,
     options: [
       {
-        type: 1,
+        type: 4,
         name: 'server',
         name_localizations: {
           ja: 'サーバー',
@@ -17,11 +17,11 @@ export const slashCommands = [
         choices: [
           {
             name: 'ARK',
-            value: '1',
+            value: 1,
           },
           {
             name: '7dtd',
-            value: '2',
+            value: 2,
           }
         ],
       },
@@ -36,7 +36,7 @@ export const slashCommands = [
     guild_id: process.env.DISCORD_GUILD_ID,
     options: [
       {
-        type: 1,
+        type: 4,
         name: 'server',
         name_localizations: {
           ja: 'サーバー',
@@ -45,11 +45,11 @@ export const slashCommands = [
         choices: [
           {
             name: 'ARK',
-            value: '1',
+            value: 1,
           },
           {
             name: '7dtd',
-            value: '2',
+            value: 2,
           }
         ],
       },
@@ -64,7 +64,7 @@ export const slashCommands = [
     guild_id: process.env.DISCORD_GUILD_ID,
     options: [
       {
-        type: 1,
+        type: 4,
         name: 'server',
         name_localizations: {
           ja: 'サーバー',
@@ -73,11 +73,11 @@ export const slashCommands = [
         choices: [
           {
             name: 'ARK',
-            value: '1',
+            value: 1,
           },
           {
             name: '7dtd',
-            value: '2',
+            value: 2,
           }
         ],
       },

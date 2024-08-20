@@ -24,6 +24,7 @@ module "bot_function" {
     "DISCORD_BOT_ACCESS_TOKEN"              = var.discord_bot_access_token
     "DISCORD_PUBLIC_KEY"                    = var.discord_public_key
     "ARK_SERVER_ID"                         = sakuracloud_server.ark.id
+    "SDTD_SERVER_ID"                        = sakuracloud_server.sdtd.id
     "SAKURACLOUD_SERVER_POWER_TOKEN"        = var.sakuracloud_server_power_token
     "SAKURACLOUD_SERVER_POWER_TOKEN_SECRET" = var.sakuracloud_server_power_token_secret
   }
